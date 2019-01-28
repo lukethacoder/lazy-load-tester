@@ -1,0 +1,87 @@
+:root {
+  --grid-height: 350px;
+}
+@media (min-width: 1023px) {
+  :root {
+    --grid-height: 450px;
+  }
+}
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+  vertical-align: baseline;
+  max-width: 100vw;
+}
+html {
+  background-color: #f4f4f4;
+}
+h1 {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.gallery {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-auto-rows: 1fr;
+}
+@media (min-width: 480px) {
+  .gallery {
+    padding: 32px;
+  }
+  .gallery-item {
+    min-height: 200px;
+  }
+}
+@media (min-width: 767px) {
+  .gallery {
+    grid-template-columns: repeat(2, var(--grid-height));
+    grid-template-rows: repeat(2, var(--grid-height));
+    grid-auto-rows: 1fr;
+  }
+  .gallery-item {
+    min-height: 150px;
+    max-height: var(--grid-height);
+  }
+}
+
+.gallery-item {
+  min-height: 250px;
+  background: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 500ms;
+
+  transform: translateY(50%);
+  opacity: 0;
+  transition: all 500ms;
+}
+.gallery-item:hover {
+  opacity: 1;
+  cursor: pointer;
+  transition: all 500ms;
+}
+img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  
+}
+.fade {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 500ms;
+}
